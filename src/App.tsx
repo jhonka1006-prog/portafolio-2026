@@ -2,7 +2,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Index from "./pages/Index";
 import SobreMi from "./pages/SobreMi";
 import Trayectoria from "./pages/Trayectoria";
@@ -19,8 +19,9 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/sobre-mi" element={<SobreMi />} />
+          <Route path="/sobre-mi/" element={<Navigate to="/sobre-mi" replace />} />
           <Route path="/trayectoria" element={<Trayectoria />} />
-          <Route path="/trayectoria/" element={<Trayectoria />} />
+          <Route path="/trayectoria/" element={<Navigate to="/trayectoria" replace />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
