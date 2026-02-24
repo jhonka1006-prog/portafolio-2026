@@ -1,19 +1,13 @@
 const Index = () => {
   return (
-    <iframe
-      src="/jhonkarly_alvarez.html"
-      title="Jhonkarly ALVAREZ — Atleta Paralímpico Colombiano"
-      style={{
-        width: "100vw",
-        height: "100vh",
-        border: "none",
-        display: "block",
-        position: "fixed",
-        top: 0,
-        left: 0,
-        zIndex: 50,
-      }}
-    />
+    <section className="px-[var(--px)] py-16 border-t border-border">
+      <div className="max-w-[var(--container-max)] mx-auto">
+        <p className="font-body text-g300 max-w-[760px]">
+          Este sitio presenta la historia, trayectoria y visión deportiva de Jhonkarly ALVAREZ rumbo a Los Ángeles 2028.
+          Usa el menú superior para explorar cada sección.
+        </p>
+      </div>
+    </section>
   );
 };
 
