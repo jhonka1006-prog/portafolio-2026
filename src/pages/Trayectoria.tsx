@@ -3,7 +3,16 @@ const Trayectoria = () => {
     <iframe
       src="/trayectoria.html"
       title="Trayectoria — Jhonkarly ALVAREZ"
-      className="w-full min-h-[1200px] border-0 block"
+      style={{
+        width: "100vw",
+        height: "100vh",
+        border: "none",
+        display: "block",
+        position: "fixed",
+        top: 0,
+        left: 0,
+        zIndex: 50,
+      }}
     />
   );
 };
