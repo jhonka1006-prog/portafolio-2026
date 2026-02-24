@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Términos | Jhonkarly ALVAREZ</title>
+  <meta name="description" content="Términos y condiciones del sitio oficial." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,300;0,400;0,500;0,600&display=swap" rel="stylesheet" />
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html,body{background:#000;color:#fff;font-family:'Barlow',sans-serif}
+    a{color:inherit;text-decoration:none} ul{list-style:none}
+    :root{--c-black:#000;--c-white:#fff;--c-g800:#1A1A1A;--c-g100:#E6E6E6;--t:.35s cubic-bezier(.16,1,.3,1);--px:clamp(24px,6vw,80px);--container:1200px;--f-display:'Bebas Neue',sans-serif;--f-body:'Barlow',sans-serif}
+    .site-header{position:fixed;top:0;left:0;width:100%;z-index:100;height:68px;display:flex;align-items:center;justify-content:space-between;padding:0 var(--px);background:var(--c-black);border-bottom:1px solid var(--c-g800)}
+    .site-header__logo{font-family:var(--f-display);font-size:clamp(1rem,2vw,1.35rem);letter-spacing:.18em;color:var(--c-white)}
+    .site-nav{display:flex;gap:clamp(28px,4vw,56px);align-items:center}
+    .site-nav a,.mobile-nav__link{font-family:var(--f-body);font-size:.72rem;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:var(--c-g100);position:relative;transition:color var(--t)}
+    .site-nav a::after,.mobile-nav__link::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:1px;background:var(--c-white);transition:width var(--t)}
+    .site-nav a:hover,.site-nav a[aria-current='page'],.mobile-nav__link[aria-current='page']{color:var(--c-white)}
+    .site-nav a:hover::after,.site-nav a[aria-current='page']::after,.mobile-nav__link[aria-current='page']::after{width:100%}
+    .menu-toggle{display:none;align-items:center;justify-content:center;width:44px;height:44px;border:0;background:transparent;color:#fff;cursor:pointer}
+    .menu-toggle__line{width:20px;height:1px;background:currentColor;transition:transform var(--t),opacity var(--t)}
+    .menu-toggle__line+.menu-toggle__line{margin-top:5px}
+    .menu-toggle[aria-expanded='true'] .menu-toggle__line:nth-child(1){transform:translateY(6px) rotate(45deg)}
+    .menu-toggle[aria-expanded='true'] .menu-toggle__line:nth-child(2){opacity:0}
+    .menu-toggle[aria-expanded='true'] .menu-toggle__line:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+    .mobile-nav{position:fixed;inset:68px 0 0;z-index:95;background:#000;display:none;padding:32px var(--px)}
+    .mobile-nav.is-open{display:block} .mobile-nav__list{display:flex;flex-direction:column;gap:20px}
+    .page{min-height:100vh;padding:calc(68px + 10vh) var(--px) 10vh} .container{max-width:var(--container);margin:0 auto}
+    h1{font-family:var(--f-display);font-size:clamp(3rem,9vw,7rem);line-height:.9;letter-spacing:.02em;text-transform:uppercase;margin-bottom:16px}
+    p{color:#bfbfbf;max-width:760px;line-height:1.8;margin-bottom:16px}
+    @media (max-width:768px){.site-nav{display:none}.menu-toggle{display:inline-flex}}
+  </style>
+</head>
+<body>
+  <header class="site-header" role="banner">
+    <a href="jhonkarly_alvarez.html" class="site-header__logo" aria-label="Jhonkarly ALVAREZ — Inicio">JHONKARLY ALVAREZ</a>
+    <nav class="site-nav" aria-label="Navegación principal" data-nav-desktop></nav>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Abrir menú principal">
+      <span class="menu-toggle__line" aria-hidden="true"></span><span class="menu-toggle__line" aria-hidden="true"></span><span class="menu-toggle__line" aria-hidden="true"></span>
+    </button>
+  </header>
+  <nav id="mobile-nav" class="mobile-nav" aria-label="Navegación principal móvil" hidden>
+    <ul class="mobile-nav__list" data-nav-mobile></ul>
+  </nav>
+  <main class="page"><section class="container"><h1>Términos</h1><p>Esta sección establece las condiciones de uso del sitio y de sus contenidos.</p><p>El uso continuado del portal implica aceptación de estos términos.</p></section></main>
+<script>
+(function () {
+  const desktopNav = document.querySelector('[data-nav-desktop]');
+  const mobileList = document.querySelector('[data-nav-mobile]');
+  const toggle = document.querySelector('.menu-toggle');
+  const mobileNav = document.getElementById('mobile-nav');
+  if (!desktopNav || !mobileList || !toggle || !mobileNav) return;
+  const navItems = [
+    { label: 'Inicio', href: 'jhonkarly_alvarez.html' },
+    { label: 'Sobre mí', href: 'sobre_mi.html' },
+    { label: 'Prensa', href: 'prensa.html' },
+    { label: 'Tienda', href: 'tienda.html' },
+    { label: 'Inicio de sesión', href: 'inicio_sesion.html' }
+  ];
+  const currentFile = (window.location.pathname.split('/').pop() || 'jhonkarly_alvarez.html').toLowerCase();
+  desktopNav.innerHTML = navItems.map((item) => `<a href="${item.href}"${item.href.toLowerCase()===currentFile ? ' aria-current="page"' : ''}>${item.label}</a>`).join('');
+  mobileList.innerHTML = navItems.map((item) => `<li><a class="mobile-nav__link" href="${item.href}"${item.href.toLowerCase()===currentFile ? ' aria-current="page"' : ''}>${item.label}</a></li>`).join('');
+  const closeMenu = () => { toggle.setAttribute('aria-expanded', 'false'); toggle.setAttribute('aria-label', 'Abrir menú principal'); mobileNav.hidden = true; mobileNav.classList.remove('is-open'); document.body.style.overflow = ''; };
+  const openMenu = () => { toggle.setAttribute('aria-expanded', 'true'); toggle.setAttribute('aria-label', 'Cerrar menú principal'); mobileNav.hidden = false; mobileNav.classList.add('is-open'); document.body.style.overflow = 'hidden'; };
+  toggle.addEventListener('click', () => toggle.getAttribute('aria-expanded') === 'true' ? closeMenu() : openMenu());
+  mobileNav.addEventListener('click', (e) => { if (e.target.closest('a')) closeMenu(); });
+  window.addEventListener('resize', () => { if (window.innerWidth > 768) closeMenu(); });
+})();
+</script>
+</body></html>
