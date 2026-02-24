@@ -1,8 +1,8 @@
-const IniciarSesion = () => {
+const InicioDeSesion = () => {
   return (
     <iframe
-      src="/iniciar-sesion.html"
-      title="Iniciar sesión — Jhonkarly ALVAREZ"
+      src="/iniciodesesion.html"
+      title="Inicio de sesión — Jhonkarly ALVAREZ"
       style={{
         width: "100vw",
         height: "100vh",
@@ -17,4 +17,4 @@ const IniciarSesion = () => {
   );
 };
 
-export default IniciarSesion;
+export default InicioDeSesion;
