@@ -1,0 +1,181 @@
+<title>Apartado de Prensa</title>
+<style>
+  .press-main {
+    --bg: #000000;
+    --panel: #0a0a0a;
+    --text: #f5f5f5;
+    --muted: #d6d6d6;
+    --accent: #b68a3a;
+    background: var(--bg);
+    color: var(--text);
+    padding: clamp(24px, 4vw, 64px);
+    font-family: inherit;
+  }
+
+  .press-wrap {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .press-hero {
+    margin-bottom: 48px;
+  }
+
+  .press-title {
+    margin: 0 0 16px 0;
+    font-size: clamp(2.4rem, 7vw, 5rem);
+    letter-spacing: 0.08em;
+    line-height: 0.95;
+    text-transform: uppercase;
+  }
+
+  .press-copy {
+    margin: 0;
+    max-width: 900px;
+    font-size: clamp(1rem, 1.3vw, 1.18rem);
+    line-height: 1.8;
+    color: var(--muted);
+  }
+
+  .press-grid {
+    margin: 0 0 56px 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+  }
+
+  .press-card {
+    border: 1px solid var(--accent);
+    background: var(--panel);
+    padding: 24px;
+  }
+
+  .press-card h2,
+  .press-heading {
+    margin: 0 0 12px 0;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: clamp(1.05rem, 2vw, 1.8rem);
+  }
+
+  .press-card p,
+  .press-links a,
+  .press-logos div {
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  .press-section {
+    margin-bottom: 56px;
+  }
+
+  .press-links {
+    margin: 0;
+    padding-left: 20px;
+    display: grid;
+    gap: 10px;
+  }
+
+  .press-links a {
+    color: var(--text);
+    text-decoration: underline;
+    text-decoration-color: var(--accent);
+    text-underline-offset: 3px;
+  }
+
+  .press-logo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
+  }
+
+  .press-logo {
+    min-height: 84px;
+    border: 1px dashed var(--accent);
+    background: var(--panel);
+    display: grid;
+    place-items: center;
+  }
+
+  .press-downloads {
+    display: grid;
+    gap: 14px;
+  }
+
+  .press-btn {
+    display: block;
+    text-align: center;
+    padding: 18px 20px;
+    border: 1px solid var(--accent);
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+
+  .press-btn--primary {
+    background: var(--accent);
+    color: #000000;
+  }
+
+  .press-btn--secondary {
+    background: var(--panel);
+    color: var(--text);
+  }
+</style>
+
+<main aria-label="Apartado de Prensa" class="press-main">
+  <div class="press-wrap">
+    <section aria-labelledby="prensa-hero" class="press-hero">
+      <h1 id="prensa-hero" class="press-title">Prensa</h1>
+      <p class="press-copy">
+        Este proyecto documenta y respalda el reto de 24 horas de nado continuo en piscina olímpica liderado por un para-nadador, con una meta superior a los 50 kilómetros, bajo criterios técnicos orientados a su homologación oficial. La iniciativa combina preparación deportiva de alto rendimiento con una narrativa audiovisual y social de gran impacto, diseñada para visibilizar el deporte adaptado, inspirar a nuevas generaciones y generar conversación nacional e internacional alrededor de la inclusión, la resiliencia y la excelencia competitiva.
+      </p>
+    </section>
+
+    <section aria-label="Bloques de cobertura" class="press-grid">
+      <article class="press-card">
+        <h2>Notas de Prensa</h2>
+        <p>Comunicados oficiales, avances del reto, cifras verificadas y actualizaciones clave para redacciones y agencias.</p>
+      </article>
+
+      <article class="press-card">
+        <h2>Entrevistas</h2>
+        <p>Espacios en profundidad con el atleta, equipo técnico y aliados para amplificar el propósito deportivo y social.</p>
+      </article>
+
+      <article class="press-card">
+        <h2>Cobertura Nacional e Internacional</h2>
+        <p>Monitoreo y consolidación de apariciones en medios de Colombia y del exterior con enfoque en alcance y reputación.</p>
+      </article>
+    </section>
+
+    <section aria-labelledby="medios-noticias" class="press-section">
+      <h2 id="medios-noticias" class="press-heading">Noticias en Medios</h2>
+      <ul class="press-links">
+        <li><a href="https://example.com/noticia-1" target="_blank" rel="noopener noreferrer">Reto 24 horas: preparación y homologación en marcha</a></li>
+        <li><a href="https://example.com/noticia-2" target="_blank" rel="noopener noreferrer">El impacto social detrás de +50 km en piscina olímpica</a></li>
+        <li><a href="https://example.com/noticia-3" target="_blank" rel="noopener noreferrer">Cobertura internacional del proyecto deportivo audiovisual</a></li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="logos-medios" class="press-section">
+      <h2 id="logos-medios" class="press-heading">Medios que han cubierto el proyecto</h2>
+      <div class="press-logo-grid">
+        <div class="press-logo">Logo Medio</div>
+        <div class="press-logo">Logo Medio</div>
+        <div class="press-logo">Logo Medio</div>
+        <div class="press-logo">Logo Medio</div>
+        <div class="press-logo">Logo Medio</div>
+        <div class="press-logo">Logo Medio</div>
+      </div>
+    </section>
+
+    <section aria-label="Descargas de prensa" class="press-downloads">
+      <a href="#" class="press-btn press-btn--primary">Descargar Dossier de Prensa (PDF)</a>
+      <a href="#" class="press-btn press-btn--secondary">Descargar Kit de Prensa Completo (Español)</a>
+      <a href="#" class="press-btn press-btn--secondary">Descargar Press Kit Completo (English)</a>
+    </section>
+  </div>
+</main>
