@@ -1058,13 +1058,7 @@ strong {
       JHONKARLY ALVAREZ
     </a>
 
-    <nav class="site-nav" aria-label="Navegación principal">
-      <a href="/" aria-current="page">Inicio</a>
-      <a href="/trayectoria/">Sobre mí</a>
-      <a href="/prensa/">Prensa</a>
-      <a href="/tienda/">Tienda</a>
-      <a href="/iniciar-sesion/">Inicio de sesión</a>
-    </nav>
+    <nav class="site-nav" aria-label="Navegación principal" data-nav-desktop></nav>
 
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Abrir menú principal">
       <span class="menu-toggle__line" aria-hidden="true"></span>
@@ -1075,13 +1069,7 @@ strong {
   </header>
 
   <nav id="mobile-nav" class="mobile-nav" aria-label="Navegación principal móvil" hidden>
-    <ul class="mobile-nav__list">
-      <li><a class="mobile-nav__link" href="/" aria-current="page">Inicio</a></li>
-      <li><a class="mobile-nav__link" href="/trayectoria/">Sobre mí</a></li>
-      <li><a class="mobile-nav__link" href="/prensa/">Prensa</a></li>
-      <li><a class="mobile-nav__link" href="/tienda/">Tienda</a></li>
-      <li><a class="mobile-nav__link" href="/iniciar-sesion/">Inicio de sesión</a></li>
-    </ul>
+    <ul class="mobile-nav__list" data-nav-mobile></ul>
   </nav>
 
 
@@ -1422,9 +1410,32 @@ strong {
 
 <script>
   (function () {
+    const desktopNav = document.querySelector('[data-nav-desktop]');
+    const mobileList = document.querySelector('[data-nav-mobile]');
     const toggle = document.querySelector('.menu-toggle');
     const mobileNav = document.getElementById('mobile-nav');
-    if (!toggle || !mobileNav) return;
+    if (!desktopNav || !mobileList || !toggle || !mobileNav) return;
+
+    const navItems = [
+      { label: 'Inicio', href: '/' },
+      { label: 'Sobre mí', href: '/trayectoria/' },
+      { label: 'Prensa', href: '/prensa/' },
+      { label: 'Tienda', href: '/tienda/' },
+      { label: 'Inicio de sesión', href: '/iniciar-sesion/' }
+    ];
+
+    const normalizePath = (path) => (path.endsWith('/') ? path : `${path}/`);
+    const currentPath = normalizePath(window.location.pathname || '/');
+
+    desktopNav.innerHTML = navItems.map((item) => {
+      const isCurrent = normalizePath(item.href) === currentPath;
+      return `<a href="${item.href}"${isCurrent ? ' aria-current="page"' : ''}>${item.label}</a>`;
+    }).join('');
+
+    mobileList.innerHTML = navItems.map((item) => {
+      const isCurrent = normalizePath(item.href) === currentPath;
+      return `<li><a class="mobile-nav__link" href="${item.href}"${isCurrent ? ' aria-current="page"' : ''}>${item.label}</a></li>`;
+    }).join('');
 
     const closeMenu = () => {
       toggle.setAttribute('aria-expanded', 'false');
